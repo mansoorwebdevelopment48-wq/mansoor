@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    /* ==== RESET ==== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0e0e0e;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* ==== NAVBAR ==== */
+    header {
+      background: #111;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff6b00;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 25px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: #ff6b00;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* ==== SECTIONS ==== */
+    .section {
+      padding: 100px 10%;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: #ff6b00;
+      margin-bottom: 50px;
+    }
+
+    /* ==== HOME ==== */
+    .home {
+      height: 100vh;
+      background: linear-gradient(to right, #111, #1a1a1a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .home-content h2 span {
+      color: #ff6b00;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 25px;
+      background: #ff6b00;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff8533;
+    }
+
+    /* ==== ABOUT ==== */
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .about-img {
+      width: 280px;
+      border-radius: 10px;
+    }
+
+    .about-text {
+      max-width: 500px;
+    }
+
+    /* ==== SKILLS ==== */
+    .skills-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .progress-bar {
+      background: #333;
+      height: 10px;
+      border-radius: 5px;
+    }
+
+    .progress-bar span {
+      display: block;
+      height: 100%;
+      background: #ff6b00;
+      border-radius: 5px;
+    }
+
+    /* ==== PROJECTS ==== */
+    .project-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* ==== CONTACT ==== */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      background: #222;
+      color: #fff;
+    }
+
+    .contact-form button {
+      background: #ff6b00;
+      border: none;
+      cursor: pointer;
+      padding: 12px;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* ==== RESPONSIVE ==== */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        background: #111;
+        flex-direction: column;
+        width: 200px;
+        transition: 0.3s;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .about-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">MyPortfolio</h1>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="menu-toggle">&#9776;</div>
+    </nav>
+  </header>
+
+  <!-- ===== HOME ===== -->
+  <section id="home" class="home">
+    <div class="home-content">
+      <h2>Hello, I'm <span>Mansoor</span></h2>
+      <h3>Front-End Web Developer</h3>
+      <p>I design and build responsive, user-friendly websites using modern web technologies.</p>
+      <a href="#projects" class="btn">View Projects</a>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="about section">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-container">
+      <img src="https://via.placeholder.com/300" alt="Profile" class="about-img">
+      <div class="about-text">
+        <p>
+          I'm a passionate web developer who loves turning ideas into interactive digital experiences.
+          I focus on writing clean, efficient code and creating beautiful designs.
+        </p>
+        <a href="#" class="btn">Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="skills section">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills-container">
+      <div class="skill">
+        <h3>HTML</h3>
+        <div class="progress-bar"><span style="width: 95%"></span></div>
+      </div>
+      <div class="skill">
+        <h3>CSS</h3>
+        <div class="progress-bar"><span style="width: 90%"></span></div>
+      </div>
+      <div class="skill">
+        <h3>JavaScript</h3>
+        <div class="progress-bar"><span style="width: 80%"></span></div>
+      </div>
+      <div class="skill">
+        <h3>React</h3>
+        <div class="progress-bar"><span style="width: 70%"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="projects section">
+    <h2 class="section-title">Projects</h2>
+    <div class="project-container">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x250" alt="Project 1">
+        <h3>Project One</h3>
+        <p>A responsive landing page built with HTML, CSS, and JavaScript.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x250" alt="Project 2">
+        <h3>Project Two</h3>
+        <p>A modern portfolio site built using React.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x250" alt="Project 3">
+        <h3>Project Three</h3>
+        <p>An interactive dashboard using APIs and chart libraries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact section">
+    <h2 class="section-title">Contact Me</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 Mansoor jamali | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // ===== Mobile Menu Toggle =====
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    // ===== Smooth Scroll Active Link =====
+    const links = document.querySelectorAll(".nav-links a");
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        links.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
+
+    // ===== Contact Form Submit (Dummy) =====
+    const form = document.querySelector(".contact-form");
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      alert("Thank you for your message!");
+      form.reset();
+    });
+  </script>
+</body>
+</html>
